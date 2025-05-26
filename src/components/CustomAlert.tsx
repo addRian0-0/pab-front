@@ -1,5 +1,5 @@
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert"
-import { Terminal, UserCheck } from "lucide-react"
+import { UserCheck } from "lucide-react"
 
 type CustomAlertProps = {
     variantprops: "default" | "destructive",
