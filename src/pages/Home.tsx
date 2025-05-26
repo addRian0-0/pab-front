@@ -2,8 +2,6 @@ import { LayoutDashboard } from "lucide-react";
 import {
     Card,
     CardContent,
-    CardDescription,
-    CardFooter,
     CardHeader,
     CardTitle,
 } from "@/components/ui/card"
@@ -11,13 +9,11 @@ import {
 import {
     Tabs,
     TabsContent,
-    TabsList,
-    TabsTrigger,
 } from "@/components/ui/tabs"
 import { useEffect, useState } from "react";
 import { getUltimaMeta } from "@/api/meta";
 import type { UltimaMeta } from "@/api/types/meta";
-import type { GetTransaccionesUlimaMeta, Transaccion } from "@/api/types/transacciones";
+import type { Transaccion } from "@/api/types/transacciones";
 import { transaccionesUltimaMetaIDUser } from "@/api/transaccion";
 import { CardData } from "@/components/CardBalance";
 import { CardFechas } from "@/components/CardFechas";
