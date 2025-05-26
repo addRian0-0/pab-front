@@ -19,7 +19,9 @@ import { getUltimaMeta } from "@/api/meta";
 import type { UltimaMeta } from "@/api/types/meta";
 import type { GetTransaccionesUlimaMeta, Transaccion } from "@/api/types/transacciones";
 import { transaccionesUltimaMetaIDUser } from "@/api/transaccion";
-import { CardData } from "@/components/ui/CardBalance";
+import { CardData } from "@/components/CardBalance";
+import { CardFechas } from "@/components/CardFechas";
+import GraficaTransacciones from "@/components/GraficoTransacciones";
 
 export default function Home() {
 
@@ -46,7 +48,7 @@ export default function Home() {
 
     return <>
         {
-            meta &&
+            meta ?
             <>
                 {/* Mobile: solo visible en pantallas pequeñas */}
                 <div className="flex justify-end p-4 md:hidden">
@@ -70,33 +72,41 @@ export default function Home() {
                             {
                                 meta && <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
                                     <CardData
+                                        logo={true}
                                         titulo="Balance"
                                         descripcion="Balance de la meta actual"
                                         data={`${meta.balance_bank.toFixed(2)}`} />
                                     <CardData
+                                        logo={true}
                                         titulo="Depositos"
                                         descripcion="Depositos realizados en el transcurso de la meta"
                                         data={`${meta.depositos_totales.toFixed(2)}`} />
                                     <CardData
+                                        logo={true}
                                         titulo="Ganancias"
                                         descripcion="Ganancias totales obtenidas en el transcurso de la meta"
                                         data={`${meta.ganancias_totales.toFixed(2)}`} />
+
+                                    <CardFechas metaData={meta} />
                                 </div>
                             }
                             <div className="grid gap-4 md:grid-cols-2">
                                 <Card className="col-span-4">
                                     <CardHeader>
-                                        <CardTitle>Overview</CardTitle>
+                                        <CardTitle>Balance - Grafico </CardTitle>
                                     </CardHeader>
                                     <CardContent className="pl-2">
-                                        {/* aqui va la tablajjjajaja */}
+                                        {
+                                            transacciones ? <GraficaTransacciones transacciones={transacciones} />
+                                            : "No hay transacciones disponibles..."
+                                        }
                                     </CardContent>
                                 </Card>
                             </div>
                         </TabsContent>
                     </Tabs>
                 </div>
-            </>
+            </> : "No hay una meta en progreso"
         }
 
 
