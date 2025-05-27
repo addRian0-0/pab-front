@@ -29,7 +29,7 @@ export function TransaccionesTable({ transaccionesData }: TransaccionesTableProp
     }, [filtro, transaccionesData]);
 
     const table = useReactTable({
-        data: transaccionesFiltradas,
+        data: transaccionesFiltradas.reverse(),
         columns: columnsTablaTransacciones,
         getCoreRowModel: getCoreRowModel(),
     });
