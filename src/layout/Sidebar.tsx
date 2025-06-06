@@ -33,8 +33,8 @@ export function Sidebar() {
 
         {/* Navegación */}
         <nav className="flex flex-col space-y-4">
-          <a href="#" className="hover:underline">Inicio</a>
-          <a href="#" className="hover:underline">Transacciones</a>
+          <a href="/inicio" className="hover:underline">Inicio</a>
+          <a href="/transacciones" className="hover:underline">Transacciones</a>
         </nav>
       </aside>
     </>

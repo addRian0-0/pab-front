@@ -3,6 +3,7 @@ import { ThemeProvider } from "@/components/theme-provider"
 import Home from "@/pages/Home"
 import LoginPage from "./pages/Login"
 import { Sidebar } from "./layout/Sidebar"
+import TransaccionesPage from "./pages/Transacciones"
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
             <Routes>
               <Route path="/" element={<LoginPage />} />
               <Route path="/inicio" element={<Home />} />
+              <Route path="/transacciones" element={<TransaccionesPage/>} />
             </Routes>
           </main>
         </div>
